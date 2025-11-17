@@ -20,11 +20,11 @@ public class domSet {
         return p;
     }
 
-    public static int[][] removeAdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
-        for (int i = 0; i < matrix.length; i++) {
-        if(matrix[i][pOHDV] = 1;){}
-        }
-    }
+//    public static int[][] removeAdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
+//        for (int i = 0; i < matrix.length; i++) {
+//        if(matrix[i][pOHDV] = 1;){}
+//        }
+//    }
 }
 
 
