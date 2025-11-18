@@ -20,11 +20,20 @@ public class domSet {
         return p;
     }
 
-//    public static int[][] removeAdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
-//        for (int i = 0; i < matrix.length; i++) {
-//        if(matrix[i][pOHDV] = 1;){}
-//        }
-//    }
+    public static int[][] removeAdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
+        int position = pOHDV;
+        int count = 10;
+        int[][] newMatrix;
+        for (int i = 0; i < matrix.length; i++) {
+        if(matrix[i][pOHDV] == 1){
+            position += (i)*count;
+            count*=10;
+        }
+        String s = (String)position;
+        newMatrix = new int[matrix.length-s.length()][matrix.length-s.length()];
+        }
+        return newMatrix;
+    }
 }
 
 
