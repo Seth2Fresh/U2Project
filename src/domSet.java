@@ -25,15 +25,24 @@ public class domSet {
         int count = 10;
         int[][] newMatrix;
         for (int i = 0; i < matrix.length; i++) {
-        if(matrix[i][pOHDV] == 1){
-            position += (i)*count;
-            count*=10;
-        }
-        String s = (String)position;
-        newMatrix = new int[matrix.length-s.length()][matrix.length-s.length()];
-        }
-        return newMatrix;
+            if (matrix[i][pOHDV] == 1) {
+                position += (i) * count;
+                count *= 10;
+            }}
+            String s = (String) position;
+            newMatrix = new int[matrix.length - s.length()][matrix.length - s.length()];
+                for(int i=0; i<s.length(); i++){
+                    int z = (int) (position/Math.pow(10,i));
+                    for (int x = 0; x < matrix.length; x++) {
+                        int count = 0;
+                        for (int p = 0; p < matrix.length; p++) {
+                        if(p!=z||x!=z){
+                        newMatrix[i][p] = matrix[i][p];
+                        }
+                        }
+            }
+        }                return newMatrix;
+
     }
 }
-
 
