@@ -34,11 +34,11 @@ public class domSet {
                 for(int i=0; i<s.length(); i++){
                     int z = (int) (position/Math.pow(10,i));
                     for (int x = 0; x < matrix.length; x++) {
-                        int count = 0;
+                        int removal = 0;
                         for (int p = 0; p < matrix.length; p++) {
                         if(p!=z||x!=z){
-                        newMatrix[i][p] = matrix[i][p];
-                        }
+                        newMatrix[i][p] = matrix[i][p-removal];
+                        }else{removal++;}
                         }
             }
         }                return newMatrix;
