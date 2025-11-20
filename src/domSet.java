@@ -29,16 +29,22 @@ public class domSet {
                 position += (i) * count;
                 count *= 10;
             }}
-            String s = (String) position;
+            String s = position + "";
+        System.out.println(s);
             newMatrix = new int[matrix.length - s.length()][matrix.length - s.length()];
-                for(int i=0; i<s.length(); i++){
-                    int z = (int) (position/Math.pow(10,i));
-                    for (int x = 0; x < matrix.length; x++) {
+                for(int i=0; i<s.length(); i++) {
+                    int z = Integer.parseInt(s.substring(i,i+1));
+                    System.out.println("z is" + z);
+
+                    for (int x = 0; x < newMatrix.length-1; x++) {
                         int removal = 0;
-                        for (int p = 0; p < matrix.length; p++) {
-                        if(p!=z||x!=z){
-                        newMatrix[i][p] = matrix[i][p-removal];
-                        }else{removal++;}
+                        for (int p = 0; p < newMatrix.length-1; p++) {
+                            if(p==z||x==z) {
+                                removal++;
+                            }
+                            else {
+                                newMatrix[i][p] = matrix[i][p-removal];
+                            }
                         }
             }
         }                return newMatrix;
