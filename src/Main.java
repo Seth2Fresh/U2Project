@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        int[][] m = createMatrix.generateMatrix(30);
+        int[][] m = createMatrix.generateMatrix(10);
 
         createMatrix.printMatrix(m);
         for (int i = 0; i < m.length; i++) {

@@ -31,7 +31,7 @@ public class domSet {
             }}
             String s = position + "";
         System.out.println(s);
-            newMatrix = new int[matrix.length - s.length()][matrix.length - s.length()];
+            newMatrix = new int[matrix.length-s.length()][matrix.length - s.length()];
                 for(int i=0; i<s.length(); i++) {
                     int z = Integer.parseInt(s.substring(i,i+1));
                     System.out.println("z is" + z);
@@ -39,11 +39,13 @@ public class domSet {
                     for (int x = 0; x < newMatrix.length-1; x++) {
                         int removal = 0;
                         for (int p = 0; p < newMatrix.length-1; p++) {
-                            if(p==z||x==z) {
+                            if(p==z) {
                                 removal++;
                             }
                             else {
-                                newMatrix[i][p] = matrix[i][p-removal];
+                                newMatrix[x][p] = matrix[x][p-removal];
+                                newMatrix[p][x] = matrix[p][x-removal];
+
                             }
                         }
             }
