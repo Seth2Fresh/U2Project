@@ -20,37 +20,35 @@ public class domSet {
         return p;
     }
 
-    public static int[][] removeAdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
+    public static int AdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
         int position = pOHDV;
         int count = 10;
-        int[][] newMatrix;
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][pOHDV] == 1) {
                 position += (i) * count;
                 count *= 10;
             }}
-            String s = position + "";
-        System.out.println(s);
-            newMatrix = new int[matrix.length-s.length()][matrix.length - s.length()];
-                for(int i=0; i<s.length(); i++) {
-                    int z = Integer.parseInt(s.substring(i,i+1));
-                    System.out.println("z is" + z);
+        return position ;
 
-                    for (int x = 0; x < newMatrix.length-1; x++) {
-                        int removal = 0;
-                        for (int p = 0; p < newMatrix.length-1; p++) {
-                            if(p==z) {
-                                removal++;
-                            }
-                            else {
-                                newMatrix[x][p] = matrix[x][p-removal];
-                                newMatrix[p][x] = matrix[p][x-removal];
+    }
+    public static int[][] removeIndexofMatrix(int[][] matrix, int row){
+        int [][] newMatrix = new int[matrix.length-1][matrix.length-1];
+        int removalp;
+        int removali = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            removalp=0;
+            for (int p = 0; p < matrix.length; p++) {
+                if(p!=row && i!=row) {
+                    newMatrix[i - removali][p - removalp] = matrix[i][p];
+                }
+                if(i == row){removali++;}
+                if(p == row){removalp++;}
 
-                            }
-                        }
+
+
             }
-        }                return newMatrix;
 
+        } return newMatrix;
     }
 }
 
