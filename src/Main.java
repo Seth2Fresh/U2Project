@@ -13,7 +13,7 @@ public class Main {
         System.out.println();
         System.out.println(domSet.AdjacencyOfHighestDegree(m,x));
         createMatrix.printMatrix(domSet.repeatRemoveIndexofMatrix(m,domSet.AdjacencyOfHighestDegree(m,x)));
-
+        System.out.println(domSet.minimalDomSet(m));
 
     }
 }
