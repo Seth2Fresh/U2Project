@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        int[][] m = createMatrix.generateMatrix(10);
+        int[][] m = createMatrix.generateMatrix(10);//realized since im not using a list for the adjacency list i can only go up to ten vertices
 
         createMatrix.printMatrix(m);
         for (int i = 0; i < m.length; i++) {

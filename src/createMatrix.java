@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class createMatrix {
     static Scanner scan = new Scanner(System.in);  // create a Scanner "object"

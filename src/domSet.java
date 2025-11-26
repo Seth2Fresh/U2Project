@@ -1,3 +1,4 @@
+
 public class domSet {
     public static int findDegree(int[][] matrix, int row) {
         int x = 0;
@@ -33,41 +34,43 @@ public class domSet {
 
     }
 
-    public static int[][] removeIndexofMatrix(int[][] matrix, int row) {
-        int[][] newMatrix = new int[matrix.length - 1][matrix.length - 1];
-        int removalp;
-        int removali = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            removalp = 0;
-            for (int p = 0; p < matrix.length; p++) {
-                if (p != row && i != row) {
-                    newMatrix[i - removali][p - removalp] = matrix[i][p];
-                }
-                if (p == row) {
-                    removalp++;
-                }
-            }
-            if (i == row) {
-                removali++;
-            }
+public static int[][] removeIndexofMatrix(int[][] matrix, int index) {
+    int n = matrix.length;
+    int[][] newMatrix = new int[n - 1][n - 1];
 
+    int r = 0;
+    for (int i = 0; i < n; i++) {
+        if (i == index) continue;
 
+        int c = 0;
+        for (int j = 0; j < n; j++) {
+            if (j == index) continue;
+
+            newMatrix[r][c] = matrix[i][j];
+            c++;
         }
-        return newMatrix;
+        r++;
+    }
+    return newMatrix;
+}
+
+    public static String sort(String s) {
+        char[] arr = s.toCharArray(); //had to look up how to do this
+        java.util.Arrays.sort(arr);
+        // reverse
+        return new StringBuilder(new String(arr)).reverse().toString();
     }
 
     public static int[][] repeatRemoveIndexofMatrix(int[][] matrix, int adjacencylist) {
-        String s = adjacencylist + "";
-        int[][] newMatrix = matrix;
-            int slast = Integer.parseInt(s.substring(s.length()-1,s.length()));
-            int s2last = Integer.parseInt(s.substring(s.length()-2,s.length()-1));
-        if (slast > s2last){
-            newMatrix = removeIndexofMatrix(matrix, slast);
-            s = s.substring(0,s.length()-1);
-        }
-            for(int i = s.length(); i > 0; i--) {
-                int index = Integer.parseInt(s.substring(i-1,i));
-                newMatrix = removeIndexofMatrix(newMatrix, index);
-        } return newMatrix;
+    String s = sort(adjacencylist + ""); // sort properly
+
+    int[][] newMatrix = matrix;
+
+    for (int i = 0; i < s.length(); i++) {
+        int index = Integer.parseInt(s.substring(i,i+1));
+        newMatrix = removeIndexofMatrix(newMatrix, index);
     }
+    return newMatrix;
+}
+
 }
