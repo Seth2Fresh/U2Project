@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class domSet {
+
     public static int findDegree(int[][] matrix, int row) {
         int x = 0;
         for (int i = 0; i < matrix.length; i++) {
@@ -21,16 +25,15 @@ public class domSet {
         return p;
     }
 
-    public static int AdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
-        int position = pOHDV;
-        int count = 10;
+    public static List<Integer> AdjacencyOfHighestDegree(int[][] matrix, int pOHDV) {
+        ArrayList<Integer> myList = new ArrayList<>();
+        myList.add(pOHDV);
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][pOHDV] == 1) {
-                position += (i) * count;
-                count *= 10;
+                myList.add(i);
             }
         }
-        return position;
+        return myList;
 
     }
 
@@ -60,13 +63,13 @@ public class domSet {
         return new StringBuilder(new String(arr)).reverse().toString();
     }
 
-    public static int[][] repeatRemoveIndexofMatrix(int[][] matrix, int adjacencylist) {
-        String s = sort(adjacencylist + ""); // sort properly
+    public static int[][] repeatRemoveIndexofMatrix(int[][] matrix, List adjacencylist) {
+        Collections.sort(adjacencylist, Collections.reverseOrder());
 
         int[][] newMatrix = matrix;
 
-        for (int i = 0; i < s.length(); i++) {
-            int index = Integer.parseInt(s.substring(i,i+1));
+        for (int i = 0; i < adjacencylist.size(); i++) {
+            int index = (int) adjacencylist.get(i);
             newMatrix = removeIndexofMatrix(newMatrix, index);
         }
         return newMatrix;
@@ -78,7 +81,7 @@ public class domSet {
         int count = 0;
         while(x.length != 0){
             x = domSet.repeatRemoveIndexofMatrix(x,domSet.AdjacencyOfHighestDegree(x,domSet.findPositionOfHighestDegree(x)));
-         count ++;
+            count ++;
         } return count;
     }
 
